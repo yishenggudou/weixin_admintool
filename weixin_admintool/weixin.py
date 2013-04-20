@@ -17,6 +17,7 @@ u"""
 
 import tornado.ioloop
 import tornado.web
+import sys
 from weixinxml import reply_text_user
 from translate import translate
 from fusearch import search
@@ -43,7 +44,11 @@ class MainHandler(tornado.web.RequestHandler):
         查询google翻译后返回结果
         """
         recv = xmltodict.parse(self.request.body)['xml']
-        print recv
+        sys.stdout.write('-' * 100 + '\n')
+        sys.stdout.write(self.request.body + '\n')
+        sys.sydout.write(str(recv) + '\n')
+        sys.stdout.write('-' * 100 + '\n')
+        sys.stdout.flush()
         hellotext = u"""欢迎关注linux管理员助手,
                         输入linux命令关键词进行搜索,
                         """
@@ -58,7 +63,7 @@ class MainHandler(tornado.web.RequestHandler):
 
             else:
                 text = recv['Content'].strip()
-                en2zh = translate.en2zh(text)
+                #en2zh = translate.en2zh(text)
                 en2zh = search(text)
                 text_reply = reply_text_user(recv['ToUserName'],
                                              recv['FromUserName'],
