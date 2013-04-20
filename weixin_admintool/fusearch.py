@@ -15,7 +15,7 @@ translate = translate()
 def search(keyword):
     cmd = "fu -a " + keyword
     t = commands.getstatusoutput(cmd)
-    return t[1]
+    return str(t[1])
 
 if __name__ == "__main__":
     import sys
