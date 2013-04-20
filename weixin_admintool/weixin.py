@@ -34,8 +34,10 @@ class MainHandler(tornado.web.RequestHandler):
         获取微信认证信息
         """
         echo = self.get_argument('echostr')
-        print echo
-        print self
+        sys.stdout.write('-' * 100 + '\n')
+        sys.stdout.write(echo + '\n')
+        sys.stdout.write('-' * 100 + '\n')
+        sys.stdout.flush()
         self.write(echo)
 
     def post(self):
@@ -87,7 +89,7 @@ def run(host='127.0.0.1', port=8888):
         port: server post
     """
     application = tornado.web.Application([
-        (r"/linuxadmintool/", MainHandler),
+        (r"/", MainHandler),
     ])
     application.listen(port)
     tornado.ioloop.IOLoop.instance().start()
