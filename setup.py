@@ -21,7 +21,7 @@ setup(name='weixin_admintool',
           # -*- Extra requirements: -*-
       ],
       data_files = [('/etc/nginx/sites-enabled/',['weinxinadmintool_nginx.conf'])],
-      scripts = ['scripts/weixin_admintool.py'],
+      scripts = ['scripts/weixin_admintool_server.py'],
       entry_points="""
       # -*- Entry points: -*-
       """,
