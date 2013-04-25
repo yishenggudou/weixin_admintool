@@ -48,7 +48,7 @@ class MainHandler(tornado.web.RequestHandler):
         recv = xmltodict.parse(self.request.body)['xml']
         sys.stdout.write('-' * 100 + '\n')
         sys.stdout.write(self.request.body + '\n')
-        sys.sydout.write(str(recv) + '\n')
+        sys.stdout.write(str(recv) + '\n')
         sys.stdout.write('-' * 100 + '\n')
         sys.stdout.flush()
         hellotext = u"""欢迎关注linux管理员助手,
