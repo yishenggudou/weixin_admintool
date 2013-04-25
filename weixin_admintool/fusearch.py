@@ -11,17 +11,15 @@
 import commands
 from translate import translate
 import sys
+from api import API
 translate = translate()
 
 
 def search(keyword):
-    cmd = "fu -a " + keyword
-    sys.stdout.write('------fu-----\n')
-    sys.stdout.write(cmd + '\n')
-    t = commands.getstatusoutput(cmd)
-    sys.stdout.write(str(t) + '\n')
-    sys.stdout.write('------fu-----\n')
-    return str(t[1])
+    a = API(keyword)
+    rst = a.load()
+    _ = '\n\n'.join([u'CMD示例:{0}\n简介:{1}'.format(i['command'],i['summary']) for i in rst])
+    return _
 
 if __name__ == "__main__":
     kw = sys.argv[1]
