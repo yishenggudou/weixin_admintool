@@ -66,8 +66,8 @@ class MainHandler(tornado.web.RequestHandler):
             else:
                 text = recv['Content'].strip()
                 #en2zh = translate.en2zh(text)
-                en2zh = search(text)
-                sys.stdout.write('-' * 100 + '\n')
+                en2zh = search(text).replace('[36m8', '').replace('[0m', '')
+                sys.stdout.write('-' * 100 + 'en2zh' + '-' * 10 + '\n')
                 sys.stdout.write(en2zh)
                 sys.stdout.write('-' * 100 + '\n')
                 text_reply = reply_text_user(recv['ToUserName'],
