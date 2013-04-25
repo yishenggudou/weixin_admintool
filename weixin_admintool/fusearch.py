@@ -16,9 +16,11 @@ translate = translate()
 
 def search(keyword):
     cmd = "fu -a " + keyword
-    sys.stdout.write(cmd)
+    sys.stdout.write('------fu-----\n')
+    sys.stdout.write(cmd + '\n')
     t = commands.getstatusoutput(cmd)
-    sys.stdout.write(t)
+    sys.stdout.write(str(t) + '\n')
+    sys.stdout.write('------fu-----\n')
     return str(t[1])
 
 if __name__ == "__main__":
