@@ -66,7 +66,7 @@ class MainHandler(tornado.web.RequestHandler):
             else:
                 text = recv['Content'].strip()
                 #en2zh = translate.en2zh(text)
-                en2zh = search(text).replace('[36m8', '').replace('[0m', '')
+                en2zh = search(text).replace('[36m8', '').replace('[0m', '').replace('[36m24','').replace('[33mls','')[:200]
                 sys.stdout.write('-' * 100 + 'en2zh' + '-' * 10 + '\n')
                 sys.stdout.write(en2zh)
                 sys.stdout.write('-' * 100 + '\n')
