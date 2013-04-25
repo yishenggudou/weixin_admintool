@@ -10,14 +10,17 @@
 #    Licensed under the MIT License, Version 2.0 (the "License");
 import commands
 from translate import translate
+import sys
 translate = translate()
+
 
 def search(keyword):
     cmd = "fu -a " + keyword
+    sys.stdout.write(cmd)
     t = commands.getstatusoutput(cmd)
+    sys.stdout.write(t)
     return str(t[1])
 
 if __name__ == "__main__":
-    import sys
     kw = sys.argv[1]
     print  translate.en2zh(search(kw))
