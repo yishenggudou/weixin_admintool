@@ -17,7 +17,7 @@ translate = translate()
 def search(keyword):
     a = API(keyword)
     rst = a.load()
-    _ = u'\n\n'.join([u'CMD example:{0}\ninfo:{1}\n\n'.format(i['command'],i['summary']) for i in rst[:10]])
+    _ = u'\r\n\r\n'.join([u'CMD example:{0}\r\ninfo:{1}\r\n\r\n'.format(i['command'],i['summary']) for i in rst[:10]])
     print _
     return _.encode('utf-8')
 
