@@ -67,6 +67,9 @@ class MainHandler(tornado.web.RequestHandler):
                 text = recv['Content'].strip()
                 #en2zh = translate.en2zh(text)
                 en2zh = search(text)
+                sys.stdout.write('-' * 100 + '\n')
+                sys.stdout.write(en2zh)
+                sys.stdout.write('-' * 100 + '\n')
                 text_reply = reply_text_user(recv['ToUserName'],
                                              recv['FromUserName'],
                                              recv['CreateTime'],
