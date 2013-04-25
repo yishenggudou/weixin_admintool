@@ -75,7 +75,10 @@ class MainHandler(tornado.web.RequestHandler):
                                              recv['CreateTime'],
                                              'text',
                                              en2zh)
-        except:
+        except Exception, e:
+            sys.stdout.write('=' * 100 + '\n')
+            sys.stdout.write(str(e) + '\n')
+            sys.stdout.flush()
             text_reply = reply_text_user(recv['ToUserName'],
                                          recv['FromUserName'],
                                          recv['CreateTime'],
