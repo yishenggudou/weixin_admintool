@@ -8,7 +8,6 @@
 #    +Weibo @timger http://t.sina.com/zhanghaibo
 #    +twitter @yishenggudou http://twitter.com/yishenggudou
 #    Licensed under the MIT License, Version 2.0 (the "License");
-import commands
 from translate import translate
 import sys
 from api import API
@@ -18,7 +17,7 @@ translate = translate()
 def search(keyword):
     a = API(keyword)
     rst = a.load()
-    _ = u'\n\n'.join([u'CMD example:{0}\ninfo:{1}'.format(i['command'],i['summary']) for i in rst[:10]])
+    _ = u'\n\n'.join([u'CMD example:{0}\ninfo:{1}\n\n'.format(i['command'],i['summary']) for i in rst[:10]])
     print _
     return _.encode('utf-8')
 
