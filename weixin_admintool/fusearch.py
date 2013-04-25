@@ -18,8 +18,9 @@ translate = translate()
 def search(keyword):
     a = API(keyword)
     rst = a.load()
-    _ = '\n\n'.join([u'CMD示例:{0}\n简介:{1}'.format(i['command'],i['summary']) for i in rst])
-    return _
+    _ = u'\n\n'.join([u'CMD example:{0}\ninfo:{1}'.format(i['command'],i['summary']) for i in rst])
+    print _
+    return _.encode('utf-8')
 
 if __name__ == "__main__":
     kw = sys.argv[1]
